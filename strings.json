@@ -1,0 +1,52 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "配置 Emby 服务器",
+        "description": "请输入 Emby 服务器连接信息",
+        "data": {
+          "host": "地址",
+          "port": "端口",
+          "api_key": "API密钥"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "无法连接到服务器",
+      "invalid_auth": "认证失败，请检查 API 密钥",
+      "unknown": "未知错误"
+    },
+    "abort": {
+      "already_configured": "此 Emby 服务器已配置"
+    }
+  },
+  "options": {
+    "step": {
+      "device_management": {
+        "title": "管理监控设备",
+        "description": "{description}",
+        "data": {
+          "action": "操作"
+        }
+      },
+      "add_device": {
+        "title": "添加监控设备",
+        "description": "选择要监控的设备。找到 {devices_count} 个可用设备。",
+        "data": {
+          "device_id": "设备"
+        }
+      },
+      "remove_device": {
+        "title": "删除监控设备",
+        "description": "选择要删除的设备",
+        "data": {
+          "device_id": "设备"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "无法连接到服务器",
+      "device_already_monitored": "此设备已在监控列表中"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Emby Server",
+        "description": "Please enter Emby server connection information",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "api_key": "API Key"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect to server",
+      "invalid_auth": "Authentication failed, please check API key",
+      "unknown": "Unknown error"
+    },
+    "abort": {
+      "already_configured": "This Emby server is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "device_management": {
+        "title": "Manage Monitored Devices",
+        "description": "{description}",
+        "data": {
+          "action": "Action"
+        }
+      },
+      "add_device": {
+        "title": "Add Monitored Device",
+        "description": "Select a device to monitor. Found {devices_count} available devices.",
+        "data": {
+          "device_id": "Device"
+        }
+      },
+      "remove_device": {
+        "title": "Remove Monitored Device",
+        "description": "Select a device to remove",
+        "data": {
+          "device_id": "Device"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect to server",
+      "device_already_monitored": "This device is already being monitored"
+    }
+  }
+}
