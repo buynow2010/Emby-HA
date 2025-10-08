@@ -6,6 +6,27 @@
 
 将 Emby 媒体服务器完美集成到 Home Assistant，实时监控服务器状态、播放活动和媒体库统计。
 
+## 🚀 快速开始
+
+<table>
+<tr>
+<td align="center">
+<a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=buynow2010&repository=Emby-HA&category=integration">
+<img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="添加HACS仓库" />
+</a>
+<br />
+<strong>添加到 HACS</strong>
+</td>
+<td align="center">
+<a href="https://my.home-assistant.io/redirect/config_flow_start/?domain=emby">
+<img src="https://my.home-assistant.io/badges/config_flow_start.svg" alt="添加集成" />
+</a>
+<br />
+<strong>添加集成</strong>
+</td>
+</tr>
+</table>
+
 ## 功能特性
 
 ### 📊 实体说明
@@ -42,6 +63,11 @@
 
 ### 方法一：通过 HACS 安装（推荐）
 
+[![添加HACS仓库](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=buynow2010&repository=Emby-HA&category=integration)
+
+**一键安装（推荐）**：点击上方徽章，直接在 HACS 中添加此仓库
+
+**手动添加**：
 1. 确保已安装 [HACS](https://hacs.xyz/)
 2. 在 HACS 中点击右上角菜单 → **自定义存储库**
 3. 添加仓库地址：`https://github.com/buynow2010/Emby-HA`
@@ -68,7 +94,11 @@
 
 ### 2. 添加集成
 
-在 Home Assistant 中：
+[![添加集成](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=emby)
+
+**一键添加（推荐）**：点击上方徽章，直接跳转到添加集成页面
+
+**手动添加**：
 ```
 设置 → 设备与服务 → 添加集成 → 搜索 "Emby"
 ```
