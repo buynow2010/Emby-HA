@@ -237,19 +237,35 @@ logger:
 - 🎯 设备过滤功能
 - 📖 完整的文档
 
-## 支持
+## 支持与反馈
 
 - **问题反馈**: [GitHub Issues](https://github.com/buynow2010/Emby-HA/issues)
 - **功能请求**: [GitHub Issues](https://github.com/buynow2010/Emby-HA/issues)
+- **讨论交流**: [GitHub Discussions](https://github.com/buynow2010/Emby-HA/discussions)
+
+## 友情链接
+
+### 🏠 Home Assistant 中文网
+
+[![Home Assistant 中文网](https://img.shields.io/badge/Home%20Assistant-中文网-blue?style=for-the-badge&logo=home-assistant)](https://www.hasscn.top)
+
+[**Home Assistant 中文网 (hasscn.top)**](https://www.hasscn.top) - 最全面的免费 Home Assistant 中文站点，提供：
+- 🚀 **Home Assistant OS 极速版** - 专为中国优化的加速版系统
+- ⚡ **HACS 极速版** - 使用国内镜像加速插件下载
+- 📚 **中文文档教程** - 详细的安装配置指南
+- 💬 **社区支持** - 微信公众号：老王杂谈说
+
+**特别适合国内用户使用，解决下载慢、连接困难等问题！**
 
 ## 许可证
 
-MIT License
+MIT License - 详见 [LICENSE](LICENSE)
 
 ## 致谢
 
 - [Emby](https://emby.media/) - 优秀的媒体服务器
 - [Home Assistant](https://www.home-assistant.io/) - 开源智能家居平台
+- [HACS](https://hacs.xyz/) - Home Assistant 社区商店
 
 ---
 
