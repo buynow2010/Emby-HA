@@ -1,7 +1,7 @@
 # Emby for Home Assistant
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/buynow2010/Emby-HA)
+[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://github.com/buynow2010/Emby-HA)
 [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2023.1%2B-green.svg)](https://www.home-assistant.io/)
 
 将 Emby 媒体服务器完美集成到 Home Assistant，实时监控服务器状态、播放活动和媒体库统计。
@@ -31,13 +31,12 @@
 
 ### 📊 实体说明
 
-集成提供 **6 个服务器级别实体** + **每个监控设备 5 个实体**
+集成提供 **5 个服务器级别实体** + **每个监控设备 5 个实体**
 
-**服务器传感器 (4个)**
+**服务器传感器 (3个)**
 - 🎬 电影数量 - 媒体库中的电影总数
 - 📺 剧集数量 - 媒体库中的剧集总数
 - 📹 集数 - 媒体库中的集数总数
-- 🆕 最近添加 - 最近7天添加的媒体
 
 **二进制传感器 (2个)**
 - ✅ 服务器在线状态 - 实时监控服务器连接
@@ -122,7 +121,6 @@ entities:
   - sensor.emby_movie_count
   - sensor.emby_series_count
   - sensor.emby_episode_count
-  - sensor.emby_recently_added
   - binary_sensor.emby_has_active_streams
   # 设备级实体（根据你监控的设备动态创建）
   # 将 device_name 替换为你的实际设备名称
