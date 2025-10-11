@@ -75,7 +75,6 @@ from .const import (
     SENSOR_TYPE_AUDIO_TRACK,
     SENSOR_TYPE_TODAY_PLAY_COUNT,
     SENSOR_TYPE_TODAY_WATCH_TIME,
-    SENSOR_TYPE_RECENTLY_ADDED,
     UPDATE_INTERVAL,
 )
 
@@ -96,9 +95,6 @@ async def async_setup_entry(
         EmbyMovieCountSensor(coordinator, entry),
         EmbySeriesCountSensor(coordinator, entry),
         EmbyEpisodeCountSensor(coordinator, entry),
-
-        # Media library
-        EmbyRecentlyAddedSensor(coordinator, entry),
     ]
 
     # ===== Device-level sensors (created for each monitored device) =====
@@ -1695,92 +1691,4 @@ class EmbyTodayWatchTimeSensor(EmbySensorBase):
             "formatted_time": f"{hours}小时{minutes}分钟",
             "note": "基于播放次数估算（平均30分钟/次），非实际观看时长",
             "warning": "需要实现会话跟踪才能获得准确的观看时长",
-        }
-
-
-class EmbyRecentlyAddedSensor(EmbySensorBase):
-    """Emby recently added sensor - shows recently added media name."""
-
-    def __init__(
-        self,
-        coordinator: EmbyDataUpdateCoordinator,
-        entry: ConfigEntry,
-    ) -> None:
-        """Initialize the sensor."""
-        super().__init__(coordinator, entry, SENSOR_TYPE_RECENTLY_ADDED)
-        self._attr_name = "Emby 最近添加"
-        self._attr_icon = "mdi:new-box"
-
-    @property
-    def native_value(self) -> str:
-        """Return the most recently added media name."""
-        activity_log = self.coordinator.data.get("activity_log", {})
-        items = activity_log.get("Items", [])
-
-        # Find most recent added item from last 7 days
-        from datetime import datetime, timedelta
-
-        week_ago = datetime.now() - timedelta(days=7)
-        recently_added = []
-
-        for item in items:
-            item_type = item.get("Type", "")
-            # Look for item creation/addition activities
-            if any(keyword in item_type for keyword in ["Added", "Create", "New"]):
-                date_str = item.get("Date", "")
-                if date_str:
-                    try:
-                        item_date = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
-                        if item_date >= week_ago:
-                            recently_added.append({
-                                "name": item.get("Name", "Unknown"),
-                                "date": item_date,
-                            })
-                    except (ValueError, AttributeError):
-                        pass
-
-        # Sort by date, newest first
-        if recently_added:
-            recently_added.sort(key=lambda x: x.get("date"), reverse=True)
-            return recently_added[0]["name"]
-
-        return "无新增"
-
-    @property
-    def extra_state_attributes(self) -> dict[str, Any]:
-        """Return extra attributes."""
-        from datetime import datetime, timedelta
-
-        activity_log = self.coordinator.data.get("activity_log", {})
-        items = activity_log.get("Items", [])
-        week_ago = datetime.now() - timedelta(days=7)
-
-        recently_added = []
-        for item in items:
-            item_type = item.get("Type", "")
-            if any(keyword in item_type for keyword in ["Added", "Create", "New"]):
-                date_str = item.get("Date", "")
-                if date_str:
-                    try:
-                        item_date = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
-                        if item_date >= week_ago:
-                            recently_added.append({
-                                "name": item.get("Name", "Unknown"),
-                                "type": item.get("Type"),
-                                "date": date_str,
-                                "severity": item.get("Severity"),
-                            })
-                    except (ValueError, AttributeError):
-                        pass
-
-        # Sort by date, newest first
-        recently_added.sort(key=lambda x: x.get("date", ""), reverse=True)
-
-        return {
-            "total_count": len(recently_added),  # 总数量
-            "latest_item": recently_added[0]["name"] if recently_added else "无",  # 最新项
-            "latest_date": recently_added[0]["date"] if recently_added else None,  # 最新日期
-            "all_items": recently_added[:20],  # 所有项（最多20个）
-            "time_range": "最近7天",
-            "note": "基于活动日志统计，显示最近7天添加的媒体",
         }

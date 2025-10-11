@@ -7,7 +7,7 @@ DOMAIN: Final = "emby"
 DEFAULT_NAME: Final = "Emby"
 DEFAULT_PORT: Final = 8096
 DEFAULT_SCAN_INTERVAL: Final = 30
-INTEGRATION_VERSION: Final = "1.0.0"  # Integration version
+INTEGRATION_VERSION: Final = "1.0.1"  # Integration version
 
 # Configuration
 CONF_API_KEY: Final = "api_key"
@@ -53,7 +53,6 @@ SENSOR_TYPE_SUBTITLE_TRACK: Final = "subtitle_track"
 SENSOR_TYPE_AUDIO_TRACK: Final = "audio_track"
 SENSOR_TYPE_TODAY_PLAY_COUNT: Final = "today_play_count"
 SENSOR_TYPE_TODAY_WATCH_TIME: Final = "today_watch_time"
-SENSOR_TYPE_RECENTLY_ADDED: Final = "recently_added"
 
 # Binary sensor types
 BINARY_SENSOR_TYPE_LIBRARY_SCANNING: Final = "library_scanning"
